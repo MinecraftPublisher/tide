@@ -1,0 +1,8 @@
+[
+  {
+    "directory": "/Users/martia/Documents/playground/tide",
+    "file": "/Users/martia/Documents/playground/tide/tide.c",
+    "output": "/Users/martia/Documents/playground/tide/tide",
+    "command": "/usr/bin/clang -c -O0 -g -o tide tide.c"
+  }
+]

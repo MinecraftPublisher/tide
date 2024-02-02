@@ -67,70 +67,8 @@ typedef struct bit_asm_context_tag bit_asm_context_t;
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // ---------------------- END OF DOOM CODE -----------------------
 
-typedef struct ht {
-    struct ht_item {
-        string key;
-        void  *value;
-    }     *keys;
-    size_t size;
-} ht;
-
-ht *bh_ht_init() {
-    ht *x = malloc(sizeof(ht));
-    sanity(x);
-    x->keys = malloc(sizeof(string));
-    sanity(x->keys);
-
-    x->size = 0;
-
-    return x;
-}
-
-void *bh_ht_get(ht *table, string key);
-
-ht *bh_ht_set(ht *table, string key, void *value) {
-    for (size_t i = 0; i < table->size; i++)
-        if (!strcmp(table->keys[ i ].key, key)) {
-            table->keys[ i ].value = value;
-            return table;
-        }
-
-    table->size++;
-    table->keys = realloc(table->keys, sizeof(string) * table->size);
-    sanity(table->keys);
-
-    table->keys[ table->size - 1 ].key   = key;
-    table->keys[ table->size - 1 ].value = value;
-
-    return table;
-}
-
-void *bh_ht_get(ht *table, string key) {
-    for (size_t i = 0; i < table->size; i++) {
-        struct ht_item *item = &table->keys[ i ];
-        if (!strcmp(item->key, key)) {
-            string          key    = item->key;
-            string          value  = item->value;
-            struct ht_item *l      = &table->keys[ 0 ];
-            string          lkey   = l->key;
-            string          lvalue = l->value;
-
-            l->key      = key;
-            l->value    = value;
-            item->key   = lkey;
-            item->value = lvalue;
-
-            return value;
-        }
-    }
-
-    return NULL;
-}
-
-#define bh_ht_delete(table, key) set(table, key, NULL)
-
 string replaceAll(string str, const string old, const string with) {
-    if(!strcmp(old, "")) return str;
+    if (!strcmp(old, "")) return str;
 
     size_t old_len = strlen(old);
     size_t new_len = strlen(with);
@@ -171,6 +109,8 @@ string replaceAll(string str, const string old, const string with) {
 #define START_RULE()
 
 bh_create_sized(string);
+bh_create_sized(char);
+typedef sized_char str;
 
 string trim(string input) {
     if (input == NULL) return NULL;

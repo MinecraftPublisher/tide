@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+ <key>clang_version</key>
+<string>cppcheck version 2.13.0</string>
+ <key>files</key>
+ <array>
+  <string>/Users/martia/Documents/playground/tide/tide.c</string>
+  <string>/Users/martia/Documents/playground/tide/belper.h</string>
+  <string>/Users/martia/Documents/playground/tide/file.h</string>
+ </array>
+ <key>diagnostics</key>
+ <array>
+ </array>
+</dict>
+</plist>

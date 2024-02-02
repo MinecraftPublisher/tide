@@ -1,0 +1,1 @@
+[{"command": "/usr/bin/clang -c -O0 -g -o tide tide.c", "directory": "/Users/martia/Documents/playground/tide", "file": "/Users/martia/Documents/playground/tide/tide.c"}]
