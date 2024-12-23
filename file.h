@@ -1,6 +1,7 @@
 #ifndef USERS_MARTIA_PROJECTS_EGG_VM_FILE_H
 #define USERS_MARTIA_PROJECTS_EGG_VM_FILE_H
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
